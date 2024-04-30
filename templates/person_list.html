@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+</head>
+<body>
+    <h1>People List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Nationality ID</th>
+                <th>Birth Date</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.nationalityID }}</td>
+                <td>{{ person.birthDate }}</td>
+                <td>
+                    <li>{{ person.name }} {% if person.id %}<a href="{% url 'person_detail' person.id %}">Details</a>{% endif %}</li>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
